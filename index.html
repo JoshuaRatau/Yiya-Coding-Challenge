@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Movies</title>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    </head>
+<body>
+    <div class="container">
+            <h1 class="text-center mt-5">Movies App</h1>
+            <form id="movieform" autocomplete="off">
+                <div class="form-group">
+
+                    <label for="movie">Movie Name</label>
+                    <input class="form-control" type="text" id="movie" placeholder="Search">
+    </div>
+<div class="form-group">
+        <button class="btn btn-primary btn-block">
+            Find A Movie
+        </button>
+    </div>
+    </form>
+    <div id="result"></div>
+
+    
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        var apikey ="90474683"
+
+
+        $("$movieform").submit(function(evebt){
+            event.preventDefault()
+
+            var movie = $("$movie").val()
+
+            var result = ""
+
+            var url = "http://www.omdbapi.com/?apikey="+apikey
+
+            $.ajax({
+                method:'GET',
+                url:url+"&t="+movie,
+                success:function(data){
+                    console.log(data)
+
+                   
+                    
+    
+
+                }
+            })
+
+        })
+    })
+    </script>
+
+    </html>
